@@ -45,11 +45,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           id: u.id,
           name: u.name ?? "",
           email: u.email ?? "",
-          // @ts-expect-error - custom session fields
           systemRole: u.systemRole,
           module: u.module,
           scopedModules: u.scopedModules ?? undefined,
-        };
+        } as any;
       },
     }),
   ],

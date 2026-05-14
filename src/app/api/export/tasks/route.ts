@@ -18,7 +18,7 @@ export async function GET() {
     asOf: new Date(),
   });
 
-  return new NextResponse(buf, {
+  return new NextResponse(new Uint8Array(buf), {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "Content-Disposition": `attachment; filename="mana-dashboard-${Date.now()}.xlsx"`,

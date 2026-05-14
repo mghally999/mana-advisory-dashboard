@@ -73,7 +73,7 @@ export class Trie {
       combined =
         combined === null
           ? matches
-          : new Set([...combined].filter((x) => matches.has(x)));
+          : new Set(Array.from(combined as Set<string>).filter((x) => matches.has(x)));
     }
     return combined ?? new Set();
   }

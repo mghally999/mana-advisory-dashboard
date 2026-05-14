@@ -19,7 +19,7 @@ export async function GET() {
     revenueTrend: REVENUE_TREND,
   });
 
-  return new NextResponse(buf, {
+  return new NextResponse(new Uint8Array(buf), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="mana-dashboard-${Date.now()}.pdf"`,

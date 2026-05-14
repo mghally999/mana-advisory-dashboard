@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   // the last run — handles missed webhooks too.
   try {
     const r = await syncJira();
-    return NextResponse.json({ ok: true, ...r });
+    return NextResponse.json(r);
   } catch (e: any) {
     return NextResponse.json({ ok: false, error: String(e?.message ?? e) }, { status: 500 });
   }

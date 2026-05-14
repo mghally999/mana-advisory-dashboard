@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   }
   try {
     const result = await syncJira();
-    return NextResponse.json({ ok: true, ...result });
+    return NextResponse.json(result);
   } catch (e: any) {
     return NextResponse.json({ ok: false, error: String(e?.message ?? e) }, { status: 500 });
   }

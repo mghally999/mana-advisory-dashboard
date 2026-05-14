@@ -18,7 +18,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
     revenueTrend: REVENUE_TREND,
   });
 
-  return new NextResponse(buf, {
+  return new NextResponse(new Uint8Array(buf), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="employee-${id}-${Date.now()}.pdf"`,
