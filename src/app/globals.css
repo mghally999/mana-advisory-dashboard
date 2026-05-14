@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Pearl & Champagne (light, default) ===== */
+:root {
+  --bg: 36 35% 96%;
+  --surface: 0 0% 100%;
+  --surface-2: 35 30% 93%;
+  --surface-3: 35 25% 88%;
+  --ink: 30 22% 14%;
+  --muted: 30 12% 45%;
+  --soft: 30 12% 65%;
+  --border: 35 25% 84%;
+  --border-strong: 35 20% 72%;
+  --gold: 38 53% 45%;
+  --gold-soft: 38 53% 60%;
+  --gold-bg: 38 70% 92%;
+  --marine: 212 30% 51%;
+  --interior: 38 53% 45%;
+  --mana: 339 21% 39%;
+  --engineering: 92 33% 36%;
+  --success: 142 50% 38%;
+  --warn: 35 90% 50%;
+  --danger: 0 65% 50%;
+
+  --radius: 0.625rem;
+}
+
+/* ===== Onyx Gold (dark, matches Mana business cards) ===== */
+.dark {
+  --bg: 30 8% 7%;
+  --surface: 30 10% 10%;
+  --surface-2: 30 10% 13%;
+  --surface-3: 30 10% 17%;
+  --ink: 36 28% 90%;
+  --muted: 36 12% 65%;
+  --soft: 36 8% 45%;
+  --border: 30 10% 22%;
+  --border-strong: 30 10% 35%;
+  --gold: 38 65% 60%;
+  --gold-soft: 38 65% 70%;
+  --gold-bg: 38 50% 18%;
+  --marine: 212 50% 65%;
+  --interior: 38 65% 60%;
+  --mana: 339 35% 65%;
+  --engineering: 92 40% 55%;
+  --success: 142 45% 55%;
+  --warn: 35 85% 60%;
+  --danger: 0 65% 60%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body { background: hsl(var(--bg)); color: hsl(var(--ink)); font-family: "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  body { background-image: radial-gradient(at top right, hsl(var(--gold) / 0.05), transparent 50%); }
+  .dark body { background-image: radial-gradient(at top right, hsl(var(--gold) / 0.1), transparent 50%), radial-gradient(at bottom left, hsl(var(--marine) / 0.06), transparent 50%); }
+  h1, h2, h3 { font-family: "Cormorant Garamond", "Times New Roman", serif; font-weight: 500; letter-spacing: -0.01em; }
+  .brand-wordmark { font-family: "Cormorant Garamond", serif; letter-spacing: 0.4em; font-weight: 500; }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--surface) / 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+  .gold-grad { background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-soft))); }
+  .gold-text { background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-soft))); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(var(--border-strong)); border-radius: 3px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .gold-divider { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.5), transparent); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
